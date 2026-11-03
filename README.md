@@ -59,6 +59,19 @@ python3 run.py --json samples/users-sample.csv > report.json
 departments `IT`, `Security`, `DevOps`, plus `svc-` service accounts. A
 real deployment would source privilege from the IAM system itself.
 
+## Try it
+
+```bash
+python3 run.py samples/users-sample.csv        # text report + risk scores
+python3 run.py --json samples/users-sample.csv # JSON report
+python3 -m pytest tests/ -v                    # unit tests
+```
+
+See [docs/USAGE.md](docs/USAGE.md) for the input format, risk-scoring
+ladder, and method-strength lists, and
+[examples/remediation-playbook.md](examples/remediation-playbook.md) for
+a sample remediation workflow.
+
 ## Layout
 
 ```
@@ -71,9 +84,7 @@ mfa/
   report.py             # plain-text and JSON report rendering
 samples/
   users-sample.csv      # 18 realistic fake users across 8 departments
+tests/                  # pytest unit tests
+docs/USAGE.md           # full usage guide
+examples/               # sample remediation playbook
 ```
-
-## Roadmap
-
-- **Day 3:** pytest unit tests, usage docs, and a sample remediation
-  playbook.
